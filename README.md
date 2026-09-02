@@ -1,88 +1,160 @@
 # Online Retail Data Analysis
 
-A portfolio-focused analysis of transactional retail data using Python, pandas, and Matplotlib. This project cleanly prepares the raw sales dataset, creates a filtered analysis dataset, and highlights the strongest revenue and quantity patterns across countries, products, customers, and time.
+A portfolio-focused retail sales analysis project built with **Python, pandas, and Matplotlib**.
+
+This project cleans and prepares transactional retail data, creates a dedicated analysis dataset, and identifies key revenue and quantity patterns across **countries, products, customers, and time**.
+
+---
 
 ## Business Objective
 
-The goal of this project is to understand which countries, products, customers, and months drive the most revenue in the Online Retail dataset. The analysis focuses on identifying top-performing business segments and high-impact periods while keeping the workflow transparent, reproducible, and easy to review.
+The objective of this project is to understand the main drivers of retail revenue and identify how sales performance varies across:
 
-## Dataset Overview
+* Countries
+* Products
+* Customers
+* Months
 
-The project uses the Online Retail sales dataset, which contains transactional records including invoice information, stock codes, descriptions, quantities, unit prices, customer IDs, dates, and countries.
+The analysis focuses on extracting practical business insights while keeping the workflow **transparent, reproducible, and easy to review**.
 
-This dataset is analyzed in two stages:
-- a cleaned dataset used to prepare the data for analysis
-- an analysis dataset filtered to remove invalid or non-relevant description records
+---
 
-## Data Cleaning Steps
+## Dataset
 
-The cleaning process follows the project logic and preserves the business rules used in the analysis:
+The project uses the **Online Retail** transactional dataset.
 
-- Removes records with negative quantities
-- Removes records with negative unit prices
-- Removes duplicate rows
-- Handles missing descriptions by filling them with a default value
-- Converts relevant numeric and date columns to appropriate data types
-- Creates a derived `TotalAmount` column using `Quantity × UnitPrice`
-- Excludes records with descriptions matching adjustment, wrong, damaged, bad debt, or coded patterns from the analysis dataset
-- Keeps records with missing `CustomerID` values in the general analysis dataset, while customer-level analysis uses only rows where `CustomerID` is available
+The raw dataset contains information including:
+
+* Invoice number
+* Stock code
+* Product description
+* Quantity
+* Unit price
+* Invoice date
+* Customer ID
+* Country
+
+The workflow produces two datasets:
+
+1. **Cleaned dataset** — prepared after applying the core data-cleaning rules.
+2. **Analysis dataset** — further filtered to remove invalid or non-relevant description records.
+
+> **Note:** The raw Excel dataset and generated CSV files are not included in this public repository because of their file size. The analysis can be reproduced locally using the original dataset.
+
+---
+
+## Data Cleaning
+
+The cleaning workflow includes:
+
+* Removing records with negative quantities
+* Removing records with negative unit prices
+* Removing duplicate rows
+* Handling missing product descriptions
+* Converting numeric and date columns to appropriate data types
+* Creating a `TotalAmount` feature
+
+```text
+TotalAmount = Quantity × UnitPrice
+```
+
+Additional analysis-specific filtering includes:
+
+* Excluding adjustment, wrong, damaged, bad debt, and coded description patterns
+* Retaining missing `CustomerID` values in the general analysis dataset
+* Using only records with available `CustomerID` for customer-level analysis
+
+---
 
 ## Analysis Performed
 
-The script performs a structured sales review across several dimensions:
+The project analyzes retail performance across multiple dimensions:
 
-- Country-level revenue analysis
-- Product-level revenue analysis
-- Product-level quantity analysis
-- Customer-level revenue analysis
-- Monthly revenue trend analysis
-- Month-over-month growth analysis
-- Identification of the best revenue month and best growth month
+* Country-level revenue
+* Product-level revenue
+* Product-level quantity
+* Customer-level revenue
+* Monthly revenue trends
+* Month-over-month revenue growth
+* Best revenue month
+* Best month-over-month growth
+
+---
 
 ## Key Business Insights
 
-The verified results from the current project are:
+| Metric                  |                     Result |
+| ----------------------- | -------------------------: |
+| Clean Dataset Rows      |                    526,052 |
+| Analysis Dataset Rows   |                    526,023 |
+| Top Country by Revenue  |             United Kingdom |
+| UK Revenue              |               8,990,682.03 |
+| Top Product by Revenue  |   REGENCY CAKESTAND 3 TIER |
+| Top Product Revenue     |                 174,156.54 |
+| Top Product by Quantity | PAPER CRAFT, LITTLE BIRDIE |
+| Top Product Quantity    |               80,995 units |
+| Top Customer by Revenue |             Customer 14646 |
+| Top Customer Revenue    |                 280,206.02 |
+| Best Revenue Month      |              November 2011 |
+| November 2011 Revenue   |               1,503,866.78 |
+| Best MoM Growth         |                   May 2011 |
+| May 2011 MoM Growth     |                     43.27% |
 
-- Clean dataset rows: 526,052
-- Analysis dataset rows: 526,023
-- Top country by revenue: United Kingdom — 8,990,682.03
-- Top product by revenue: REGENCY CAKESTAND 3 TIER — 174,156.54
-- Top product by quantity: PAPER CRAFT, LITTLE BIRDIE — 80,995 units
-- Top customer by revenue: Customer 14646 — 280,206.02
-- Best revenue month: November 2011 — 1,503,866.78
-- Best MoM growth: May 2011 — 43.27%
+### Key Takeaways
 
-These results show that the United Kingdom is the largest revenue contributor, the product mix is strongly influenced by a few high-value items, and customer and monthly demand patterns reveal clear opportunities for revenue optimization.
+* The **United Kingdom** is the strongest revenue-generating market in the dataset.
+* A relatively small number of products contribute significantly to overall revenue.
+* **REGENCY CAKESTAND 3 TIER** is the top product by revenue.
+* **PAPER CRAFT, LITTLE BIRDIE** has the highest recorded quantity sold.
+* Customer-level analysis shows significant revenue concentration among high-value customers.
+* **November 2011** generated the highest monthly revenue.
+* **May 2011** recorded the strongest month-over-month growth.
+
+---
 
 ## Visualizations
 
-The project creates the following charts in the `charts/` folder:
+### Monthly Revenue Trend
 
-- Monthly Revenue Trend
-- Top 10 Products by Revenue
-- Top 10 Countries by Revenue
-- Top 10 Customers by Revenue
-- Top 10 Products by Quantity
+![Monthly Revenue Trend](charts/monthly_revenue_trend.png)
 
-These visuals help communicate the strongest revenue drivers and seasonal performance in a simple, portfolio-friendly format.
+### Top 10 Products by Revenue
+
+![Top 10 Products by Revenue](charts/top_10_products_by_revenue.png)
+
+### Top 10 Countries by Revenue
+
+![Top 10 Countries by Revenue](charts/top_10_countries_by_revenue.png)
+
+### Top 10 Customers by Revenue
+
+![Top 10 Customers by Revenue](charts/top_10_customers_by_revenue.png)
+
+### Top 10 Products by Quantity
+
+![Top 10 Products by Quantity](charts/top_10_products_by_quantity.png)
+
+---
 
 ## Technologies Used
 
-- Python
-- pandas
-- Matplotlib
-- openpyxl
-- pathlib
+* **Python** — core programming language
+* **pandas** — data cleaning, transformation, and analysis
+* **Matplotlib** — data visualization
+* **openpyxl** — reading the Excel dataset
+* **pathlib** — file and directory management
+
+---
 
 ## Project Structure
 
 ```text
-Online Retail Analysis/
-├── Online Retail.xlsx
+online-retail-data-analysis/
+│
+├── README.md
 ├── online_retail_analysis_clean.py
-├── data/
-│   ├── online_retail_clean.csv
-│   └── online_retail_analysis.csv
+├── .gitignore
+│
 └── charts/
     ├── monthly_revenue_trend.png
     ├── top_10_products_by_revenue.png
@@ -91,39 +163,82 @@ Online Retail Analysis/
     └── top_10_products_by_quantity.png
 ```
 
-## How to Run the Project Locally
+### Local Project Files
 
-1. Clone or download the project folder.
-2. Ensure the dataset file `Online Retail.xlsx` is saved in the project root.
-3. Install the required Python packages:
+When running the project locally, the following files/folders are generated:
+
+```text
+online-retail-data-analysis/
+│
+├── Online Retail.xlsx
+├── data/
+│   ├── online_retail_clean.csv
+│   └── online_retail_analysis.csv
+└── charts/
+```
+
+---
+
+## How to Run Locally
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/shorifulislamovi8-oss/online-retail-data-analysis.git
+```
+
+### 2. Navigate to the project directory
+
+```bash
+cd online-retail-data-analysis
+```
+
+### 3. Install dependencies
 
 ```bash
 pip install pandas matplotlib openpyxl
 ```
 
-4. Run the analysis script from the project directory:
+### 4. Add the dataset
+
+Place the original `Online Retail.xlsx` file in the project root directory.
+
+### 5. Run the analysis
 
 ```bash
 python online_retail_analysis_clean.py
 ```
 
-This will:
-- create the `data/` and `charts/` folders automatically if they do not exist
-- save the cleaned and analysis CSV files to `data/`
-- save the generated charts to `charts/`
-- print the analysis summary in the terminal
+The script will:
+
+* Create the required `data/` and `charts/` directories
+* Generate the cleaned dataset
+* Generate the analysis dataset
+* Create the five visualizations
+* Print the analysis summary in the terminal
+
+---
 
 ## Future Improvements
 
-Potential next steps for this project include:
+Possible future extensions include:
 
-- adding a clearer executive summary section in the script output
-- refining chart labels and formatting for presentation quality
-- exploring product segmentation or repeat-customer trends
-- comparing revenue performance by country and month in a more explicit narrative format
+* Product segmentation
+* Repeat-customer analysis
+* Customer retention analysis
+* RFM analysis
+* Advanced dashboarding
+* Deeper country and seasonal analysis
+* More detailed customer behavior analysis
 
-These enhancements would improve readability and presentation without changing the current analysis logic or core findings.
+---
 
 ## Summary
 
-This project is a straightforward retail sales analysis built to communicate business insights clearly and professionally. It demonstrates practical data cleaning, business-focused analysis, and effective charting using common Python tools appropriate for a GitHub portfolio.
+This project demonstrates a practical retail data-analysis workflow using Python.
+
+It covers:
+
+**Data Cleaning → Feature Engineering → Exploratory Analysis → Business Insights → Data Visualization**
+
+The project demonstrates practical skills in **pandas, data cleaning, business analysis, feature engineering, and data visualization** using a real-world transactional retail dataset.
