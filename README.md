@@ -83,23 +83,22 @@ The project analyzes retail performance across multiple dimensions:
 
 ## Key Business Insights
 
-| Metric                  |                     Result |
-| ----------------------- | -------------------------: |
-| Clean Dataset Rows      |                    526,052 |
-| Analysis Dataset Rows   |                    526,023 |
-| Top Country by Revenue  |             United Kingdom |
-| UK Revenue              |               8,990,682.03 |
-| Top Product by Revenue  |   REGENCY CAKESTAND 3 TIER |
-| Top Product Revenue     |                 174,156.54 |
+| Metric | Result |
+|---|---|
+| Clean Dataset Rows | 526,052 |
+| Analysis Dataset Rows | 526,023 |
+| Top Country by Revenue | United Kingdom |
+| UK Revenue | 8,990,682.03 |
+| Top Product by Revenue | REGENCY CAKESTAND 3 TIER |
+| Top Product Revenue | 174,156.54 |
 | Top Product by Quantity | PAPER CRAFT, LITTLE BIRDIE |
-| Top Product Quantity    |               80,995 units |
-| Top Customer by Revenue |             Customer 14646 |
-| Top Customer Revenue    |                 280,206.02 |
-| Best Revenue Month      |              November 2011 |
-| November 2011 Revenue   |               1,503,866.78 |
-| Best MoM Growth         |                   May 2011 |
-| May 2011 MoM Growth     |                     43.27% |
-
+| Top Product Quantity | 80,995 units |
+| Top Customer by Revenue | Customer 14646 |
+| Top Customer Revenue | 280,206.02 |
+| Best Revenue Month | November 2011 |
+| November 2011 Revenue | 1,503,866.78 |
+| Best MoM Growth | May 2011 |
+| May 2011 MoM Growth | 43.27% |
 ### Key Takeaways
 
 * The **United Kingdom** is the strongest revenue-generating market in the dataset.
